@@ -29,21 +29,20 @@ modelo, pontuacao = criar_modelo(dados)
 
 # Carrega e reajusta os demais dados
 print()
-print(f'\033[1;33m[Carregando e reajustando os demais dados...]\033[m')
+print(f"\033[1;33m[Carregando e reajustando os demais dados...]\033[m")
 print()
 
 possibilidades = obter_possibilidades()
 resultado_concursos = resultados_ordenados(dados)
 possibilidades_atualizada = remover_resultado_concursos(
-                                                        possibilidades, 
-                                                        resultado_concursos
-                                                        )
+    possibilidades, resultado_concursos
+)
 
 # Variável de verificação se o jogo gerado é aceitável
 jogo_aceito = False
 
 # Replica até que a probabilidade seja igual à probabilidade desejada
-# e o jogo seja aceitável 
+# e o jogo seja aceitável
 while probabilidade < prob_alvo and not jogo_aceito:
 
     # Atribui a sequência dos números sorteados
@@ -76,10 +75,13 @@ while probabilidade < prob_alvo and not jogo_aceito:
     sequencia = [str(numero[0]).zfill(2) for numero in sorteados]
 
     # Imprime as informações obtidas no ciclo atual de execução enquanto a probabilidade desejada não foi encontrada
-    print(f'Alvo = ({prob_alvo}%) - ACURAC.: {round((pontuacao * 100), 1)}% - Rep.: {str(procurando).zfill(7)}'
-          f' - Prob. Enc.: ({str(probabilidade).zfill(2)}%) Sequência: [ ', end='')
+    print(
+        f"Alvo = ({prob_alvo}%) - ACURAC.: {round((pontuacao * 100), 1)}% - Rep.: {str(procurando).zfill(7)}"
+        f" - Prob. Enc.: ({str(probabilidade).zfill(2)}%) Sequência: [ ",
+        end="",
+    )
 
-    print(*sequencia, ']')
+    print(*sequencia, "]")
 
     # Se o jogo não é aceitável, zera a probabilidade para gerar novo jogo
     if not jogo_aceito:
@@ -87,13 +89,13 @@ while probabilidade < prob_alvo and not jogo_aceito:
 
 
 # Resultados
-print(f'\nAcuracidade do Modelo: {round((pontuacao * 100), 1)}%')
+print(f"\nAcuracidade do Modelo: {round((pontuacao * 100), 1)}%")
 
-print('\n0 = Não tem chance de ganhar | 1 = Tem chance de ganhar')
-print(f'Resultado: (Previsão Modelo) = {predicao_alvo[0][0]}')
+print("\n0 = Não tem chance de ganhar | 1 = Tem chance de ganhar")
+print(f"Resultado: (Previsão Modelo) = {predicao_alvo[0][0]}")
 
-print(f'\nProbabilidade das dezenas sairem: {probabilidade}%')
+print(f"\nProbabilidade das dezenas sairem: {probabilidade}%")
 
 # Números sorteados (em ordem de sorteio e em ordem crescente)
-print(f'\nNúmeros sorteados:  {[numeros[0] for numeros in sorteados]}')
-print(f'\nNúmeros ordenados:  {jogo}')
+print(f"\nNúmeros sorteados:  {[numeros[0] for numeros in sorteados]}")
+print(f"\nNúmeros ordenados:  {jogo}")

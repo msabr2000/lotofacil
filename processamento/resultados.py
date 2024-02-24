@@ -2,20 +2,20 @@ from dados.dados import carregar_dados
 
 
 def resultados_ordenados(base_dados):
-	"""
-	Estrutura os resultados em ordem crescente.
+    """
+    Estrutura os resultados em ordem crescente.
 
-	:param base_dados: DataFrame da base de dados.
-	
-	return: Retorna uma lista com todos os resultados da lotofácil
-	em ordem crescente.
-	"""
-	dados = base_dados.copy()
+    :param base_dados: DataFrame da base de dados.
 
-	num_sorteados = dados.iloc[:, 2:17]
-	num_ordenados = num_sorteados.values
+    return: Retorna uma lista com todos os resultados da lotofácil
+    em ordem crescente.
+    """
+    dados = base_dados.copy()
 
-	for numeros in num_ordenados:
-		numeros.sort()
+    num_sorteados = dados.iloc[:, 2:17]
+    num_ordenados = num_sorteados.values
 
-	return num_ordenados.tolist()
+    for numeros in num_ordenados:
+        numeros.sort()
+
+    return num_ordenados.tolist()

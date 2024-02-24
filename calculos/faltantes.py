@@ -15,13 +15,13 @@ def ultimo_jogos(base_dados):
     dados = base_dados.copy()
 
     # O maior ciclo fechado
-    maior = max(dados['Ciclo'])
+    maior = max(dados["Ciclo"])
 
     # Índice do último ciclo fechado
-    ciclo = int(dados.query(f'Ciclo == {maior}')['Concurso'].index[0])
+    ciclo = int(dados.query(f"Ciclo == {maior}")["Concurso"].index[0])
 
     # Quantidade de jogos realizados após o último ciclo fechado
-    jogos = len(dados.iloc[ciclo + 1:])
+    jogos = len(dados.iloc[ciclo + 1 :])
 
     return jogos
 
@@ -65,7 +65,7 @@ def numeros_faltantes_ciclo(base_dados):
 
         for i in range(1, 8):
             jogo.append(i)
-            peso[i] = len(dados.query(f'Jogo == 2 & Falta == {i}'))
+            peso[i] = len(dados.query(f"Jogo == 2 & Falta == {i}"))
 
         for k, v in peso.items():
             pesos.append(v)
@@ -93,7 +93,7 @@ def numeros_faltantes_ciclo(base_dados):
 
         for i in range(0, qtde_faltantes + 1):
             jogo.append(i)
-            peso[i] = len(dados.query(f'Jogo == 3 & Falta == {i}'))
+            peso[i] = len(dados.query(f"Jogo == 3 & Falta == {i}"))
 
         for k, v in peso.items():
             pesos.append(v)
@@ -125,7 +125,7 @@ def numeros_faltantes_ciclo(base_dados):
 
         for i in range(0, qtde_faltantes + 1):
             jogo.append(i)
-            peso[i] = len(dados.query(f'Jogo == 4 & Falta == {i}'))
+            peso[i] = len(dados.query(f"Jogo == 4 & Falta == {i}"))
 
         for k, v in peso.items():
             pesos.append(v)
@@ -157,7 +157,7 @@ def numeros_faltantes_ciclo(base_dados):
 
         for i in range(0, qtde_faltantes + 1):
             jogo.append(i)
-            peso[i] = len(dados.query(f'Jogo == 5 & Falta == {i}'))
+            peso[i] = len(dados.query(f"Jogo == 5 & Falta == {i}"))
 
         for k, v in peso.items():
             pesos.append(v)
@@ -188,4 +188,3 @@ def numeros_faltantes_ciclo(base_dados):
     # Para jogos igual ou maior que 5, retorna a dezena que ainda não foi sorteada
     else:
         return num_faltantes, maior_peso
-

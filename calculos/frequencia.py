@@ -28,14 +28,17 @@ def gerar_frequencia(base_dados):
         valor = 0
 
     # Cria os índices para a lista de frequência
-    lista_frequencia = [[indice + 1, vlr] for indice, vlr in enumerate(lista_frequencia)]
+    lista_frequencia = [
+        [indice + 1, vlr] for indice, vlr in enumerate(lista_frequencia)
+    ]
 
     # Ordena a lista pela maior frequência
-    lista_frequencia = sorted([[valor[1], valor] for valor in lista_frequencia], reverse=True)
+    lista_frequencia = sorted(
+        [[valor[1], valor] for valor in lista_frequencia], reverse=True
+    )
 
     # Cria o dicionário das frequências
     # noinspection PyTypeChecker
     frequencia = dict(OrderedDict(frequencia[1] for frequencia in lista_frequencia))
 
     return frequencia, qtde_sorteios
-

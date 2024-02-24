@@ -3,7 +3,7 @@ from sklearn.model_selection import train_test_split
 from pandas import ExcelFile, read_excel
 
 
-def carregar_dados(guia='Importar_Ciclo'):
+def carregar_dados(guia="Importar_Ciclo"):
     """
     Importando os dados da planilha do Excel gerando o dataframe da
     base de dados.
@@ -11,7 +11,7 @@ def carregar_dados(guia='Importar_Ciclo'):
     :return: a base de dados.
     """
 
-    caminho = './base/base_dados.xlsx'
+    caminho = "./base/base_dados.xlsx"
     planilha = ExcelFile(caminho)
     dados = read_excel(planilha, guia)
 
@@ -33,7 +33,7 @@ def preparar_dados(base_dados):
 
     # Reajustando a columa de ganhadores para:
     # 1 - concurso com ganhadores | 0 - concurso sem ganhadores
-    dados.loc[dados['Ganhou'] > 1, 'Ganhou'] = 1
+    dados.loc[dados["Ganhou"] > 1, "Ganhou"] = 1
 
     # Seleciona todas as linhas mais as colunas das dezenas sorteadas
     # e a coluna de ganhadores
@@ -61,10 +61,8 @@ def dividir_dados(base_dados, tm_teste=0.1, seed=12):
     total_atributos = atributos.shape[1]
 
     # Dividindo os dados em treino e teste
-    x_treino, x_teste, y_treino, y_teste = train_test_split(atributos,
-                                                            classe,
-                                                            test_size=tm_teste,
-                                                            random_state=seed)
+    x_treino, x_teste, y_treino, y_teste = train_test_split(
+        atributos, classe, test_size=tm_teste, random_state=seed
+    )
 
     return x_treino, x_teste, y_treino, y_teste, total_atributos
-

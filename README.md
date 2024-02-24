@@ -230,18 +230,18 @@ Sinta-se livre para contrituir com o projeto. Para tal, faça:
    $ git remote add upstream https://github.com/msabr2000/lotofacil
    ```
 
-1. Uma vez feito o fork, crie um branch de trabalho (por exemplo, "feature-x")
+1. Uma vez feito o fork, crie um branch de trabalho (por exemplo, "MELHORIAS")
 
    ```
-   $ git checkout -b feature-x
+   $ git checkout -b MELHORIAS
    ```
 
-1. Trabalhe normalmente no branch feature-x. Quando estiver satisfeito com o resultado, faça o commit e em seguida o push:
+1. Trabalhe normalmente no branch MELHORIAS. Quando estiver satisfeito com o resultado, faça o commit e em seguida o push:
 
    ```
-   $ git push origin feature-x
+   $ git push origin MELHORIAS
    ```
 
-1. O branch usado no "git checkout" tem que casar com o branch usado no "git push".
+1. O branch usado no "git checkout" tem que igual ao branch usado no "git push".
 
 1. Por fim, entre no github e abra um Pull Request (PR).

@@ -5,14 +5,14 @@ from keras.models import Sequential
 
 
 def criar_modelo(
-                    base_dados, 
-                    primeira_camada=30,
-                    segunda_camada=15,
-                    terceira_camada=15,
-                    saida=1,
-                    periodo=50,
-                    lote=15
-                ):
+    base_dados,
+    primeira_camada=30,
+    segunda_camada=15,
+    terceira_camada=15,
+    saida=1,
+    periodo=50,
+    lote=15,
+):
     """
     Cria o modelo sequêncial com três camadas.
 
@@ -32,16 +32,13 @@ def criar_modelo(
     modelo = Sequential()
 
     # Criando as camadas do modelo
-    modelo.add(Dense(primeira_camada, input_dim=atributos, activation='relu'))
-    modelo.add(Dense(segunda_camada, activation='relu'))
-    modelo.add(Dense(terceira_camada, activation='relu'))
-    modelo.add(Dense(saida, activation='sigmoid'))
+    modelo.add(Dense(primeira_camada, input_dim=atributos, activation="relu"))
+    modelo.add(Dense(segunda_camada, activation="relu"))
+    modelo.add(Dense(terceira_camada, activation="relu"))
+    modelo.add(Dense(saida, activation="sigmoid"))
 
     # Compilando o modelo
-    modelo.compile(
-                    loss='binary_crossentropy',
-                    optimizer='adam',
-                    metrics=['accuracy'])
+    modelo.compile(loss="binary_crossentropy", optimizer="adam", metrics=["accuracy"])
 
     # Treinando o modelo
     modelo.fit(x_treino, y_treino, epochs=periodo, batch_size=lote)
@@ -50,4 +47,3 @@ def criar_modelo(
     pontuacao = modelo.evaluate(x_teste, y_teste)
 
     return modelo, pontuacao[1]
-

@@ -1,1 +1,1 @@
-__all__ = ['sortear']
+__all__ = ["sortear"]

@@ -18,7 +18,7 @@ def calcular_pesos(base_dados):
     numeros_faltantes = numeros_faltantes_ciclo(base_dados)
 
     # Aplicado para uma ocorrência de percentual que já existe
-    fator_distincao = [float('0.000' + str(n)) for n in range(100, 10000)]
+    fator_distincao = [float("0.000" + str(n)) for n in range(100, 10000)]
 
     l_peso = list()
 
@@ -105,4 +105,3 @@ def calcular_numero_pesos(base_dados):
         n_peso[i] = peso[i - 1]
 
     return peso, n_peso
-
