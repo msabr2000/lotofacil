@@ -102,3 +102,6 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+combinacoes/combinacoes.csv
+base/resultados.csv

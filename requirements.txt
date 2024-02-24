@@ -2,3 +2,5 @@ requests
 Keras
 pandas
 scikit_learn
+openpyxl
+
