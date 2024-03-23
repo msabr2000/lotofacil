@@ -2,7 +2,7 @@ import pandas as pd
 import ssl
 
 
-def xls_resultados(url):
+def obter_resultados_xls(url):
     """
     Obtém os dados de todos os sorteios da lotofácil.
 
@@ -24,7 +24,7 @@ API_URL = "https://servicebus2.caixa.gov.br/portaldeloterias/api/lotofacil"
 URL = "https://servicebus2.caixa.gov.br/portaldeloterias/api/resultados/download?modalidade=Lotof%C3%A1cil"
 
 # Obtém os dados do arquivo XLS
-base = xls_resultados(URL)
+base = obter_resultados_xls(URL)
 
 # Remove dados duplicados
 base = base.drop_duplicates("Concurso")

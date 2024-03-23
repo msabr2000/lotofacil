@@ -1,4 +1,4 @@
-from dados.dados import carregar_dados
+# from dados.dados import carregar_dados_planilha
 
 
 def resultados_ordenados(base_dados):

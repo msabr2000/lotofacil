@@ -3,4 +3,6 @@ Keras
 pandas
 scikit_learn
 openpyxl
+tensorflow
+xlrd==1.2.0
 

@@ -3,7 +3,7 @@ from dados.busca import buscar
 
 def remover_resultado_concursos(possibilidades, resultado_concursos):
     """
-    Remove da lista de possibilidades os resultados já sorteados.
+    Remove da lista de possibilidades dos resultados já sorteados.
 
     :param possibilidades: Combinações possíveis da Lotofácil
     :param resultado_concursos: Resultado de todos os concursos

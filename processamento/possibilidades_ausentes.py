@@ -32,7 +32,7 @@ def criar_nao_sorteados(
 
     if atualizar_base_resultados:
         # Atualiza o CSV com todos os resultados dos sorteios já realizados
-        from dados import scrapping_resultados
+        from dados import obter_resultados
 
     dados = read_csv(base_url, sep=";", encoding="utf-8")
     resultados = dados.iloc[:, 2:17].values

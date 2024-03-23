@@ -43,6 +43,7 @@ def criar_combinacoes_csv(dr=DIR, cb=CABECALHO, dz=DEZENAS, tm=TM):
     :param tm: Quantidade de dezenas para a combinação (default: {15})
     """
 
+    # CRIA ARQUIVO combinacoes.csv
     if not path.exists(dr):
         with open(dr, "w", newline="") as arquivo:
             add = writer(arquivo, delimiter=";")
@@ -67,7 +68,6 @@ def criar_combinacoes(dz=DEZENAS, tm=TM):
     :param dz: Dezenas da Lotofácil (default: {DEZENAS})
     :param tm: Quantidade de dezenas para a combinação (default: {15})
     """
-
     combinacoes = list()
 
     for combinacao in combinations(dz, tm):

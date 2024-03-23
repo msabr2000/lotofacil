@@ -17,6 +17,8 @@ def ultimo_jogos(base_dados):
     # O maior ciclo fechado
     maior = max(dados["Ciclo"])
 
+    # print(f"\nMaior ciclo fechado: {maior}")
+
     # Índice do último ciclo fechado
     ciclo = int(dados.query(f"Ciclo == {maior}")["Concurso"].index[0])
 

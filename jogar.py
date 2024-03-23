@@ -4,13 +4,17 @@ from processamento.resultados import resultados_ordenados
 from calculos.pesos import calcular_numero_pesos
 from sorteios.sortear import sortear_numeros
 from modelo.modelo import criar_modelo
-from dados.dados import carregar_dados
+from dados.dados import carregar_dados_planilha
+from dados.dados import carregar_dados_csv
 
 from pandas import DataFrame
 
 
-# Carrega a base de dados
-dados = carregar_dados()
+# Carrega a base de dados da planilha
+dados = carregar_dados_planilha()
+
+# Carrega a base de dados do csv
+# dados = carregar_dados_csv()
 
 # Inicialização das variáveis
 probabilidade = 0.00
@@ -34,6 +38,7 @@ print()
 
 possibilidades = obter_possibilidades()
 resultado_concursos = resultados_ordenados(dados)
+
 possibilidades_atualizada = remover_resultado_concursos(
     possibilidades, resultado_concursos
 )
