@@ -43,6 +43,15 @@ def criar_combinacoes_csv(dr=DIR, cb=CABECALHO, dz=DEZENAS, tm=TM):
     :param tm: Quantidade de dezenas para a combinação (default: {15})
     """
 
+    if not path.exists(dr):
+        print()
+        print(f"\033[1;33m[Criando arquivo de probabilidades...]\033[m")
+        print()
+    else:
+        print()
+        print(f"\033[1;33m[Carregando arquivo de probabilidades...]\033[m")
+        print()
+
     # CRIA ARQUIVO combinacoes.csv
     if not path.exists(dr):
         with open(dr, "w", newline="") as arquivo:

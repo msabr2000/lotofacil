@@ -1,3 +1,6 @@
+from datetime import datetime
+from pandas import DataFrame
+
 from processamento.reajustar_dados import remover_resultado_concursos
 from processamento.possibilidades import obter_possibilidades
 from processamento.resultados import resultados_ordenados
@@ -5,10 +8,9 @@ from calculos.pesos import calcular_numero_pesos
 from sorteios.sortear import sortear_numeros
 from modelo.modelo import criar_modelo
 from dados.dados import carregar_dados_planilha
-from dados.dados import carregar_dados_csv
+from dados.gerar_combinacoes import criar_combinacoes_csv
 
-from pandas import DataFrame
-
+combinacoes = criar_combinacoes_csv()
 
 # Carrega a base de dados da planilha
 dados = carregar_dados_planilha()
@@ -46,8 +48,7 @@ possibilidades_atualizada = remover_resultado_concursos(
 # Variável de verificação se o jogo gerado é aceitável
 jogo_aceito = False
 
-# Replica até que a probabilidade seja igual à probabilidade desejada
-# e o jogo seja aceitável
+# Replica até que a probabilidade seja igual à probabilidade desejada e o jogo seja aceitável
 while probabilidade < prob_alvo and not jogo_aceito:
 
     # Atribui a sequência dos números sorteados
@@ -81,12 +82,13 @@ while probabilidade < prob_alvo and not jogo_aceito:
 
     # Imprime as informações obtidas no ciclo atual de execução enquanto a probabilidade desejada não foi encontrada
     print(
-        f"Alvo = ({prob_alvo}%) - ACURAC.: {round((pontuacao * 100), 1)}% - Rep.: {str(procurando).zfill(7)}"
+        f"Alvo = ({prob_alvo}%) - PRECISÂO.: {round((pontuacao * 100), 1)}% - Rep.: {str(procurando).zfill(4)}"
         f" - Prob. Enc.: ({str(probabilidade).zfill(2)}%) Sequência: [ ",
         end="",
     )
 
     print(*sequencia, "]")
+    # print(f"Valores de:", probabilidade, prob_alvo, jogo_aceito)
 
     # Se o jogo não é aceitável, zera a probabilidade para gerar novo jogo
     if not jogo_aceito:
@@ -94,12 +96,11 @@ while probabilidade < prob_alvo and not jogo_aceito:
 
 
 # Resultados
-print(f"\nAcuracidade do Modelo: {round((pontuacao * 100), 1)}%")
-
-print("\n0 = Não tem chance de ganhar | 1 = Tem chance de ganhar")
+print(f"\nData/hora do sorteio", datetime.now().strftime("%d/%m/%Y %H:%M:%S"))
+print(f"\nPrecisão do Modelo: {round((pontuacao * 100), 1)}%")
+# print(f"\n0 = Não tem chance de ganhar | 1 = Tem chance de ganhar")
 print(f"Resultado: (Previsão Modelo) = {predicao_alvo[0][0]}")
-
-print(f"\nProbabilidade das dezenas sairem: {probabilidade}%")
+# print(f"\nProbabilidade das dezenas sairem: {probabilidade}%")
 
 # Números sorteados (em ordem de sorteio e em ordem crescente)
 print(f"\nNúmeros sorteados:  {[numeros[0] for numeros in sorteados]}")

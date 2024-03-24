@@ -155,20 +155,22 @@ $ pip install openpyxl
 
 No terminal, execute os comandos.
 
-1. Para criar o arquivo de todos resultados.csv:
+1. Para criar o arquivo de todos resultados.csv manualmente:
 
 ```bash
 $ rm ./dados/resultados.csv
 $ python3 ./dados/obter_resultados.py
 ```
 
-2. Para criar o arquivo de combinacoes.csv:
+2. Para criar o arquivo de combinacoes.csv manualmente:  
    Remova o .csv, que está no diretório combinacoes e recrie o arquivo conforme anbaixo:
 
 ```bash
 $ rm ./combinacoes/combinacoes.csv
 $ python3 ./dados/gerar_combinacoes.py
 ```
+
+Lembramos qua a aplicação já lê ou cria o arquivo combinacoes.csv caso necessário.
 
 ### Rodar o projeto
 
